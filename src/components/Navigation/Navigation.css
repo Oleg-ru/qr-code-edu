@@ -1,0 +1,21 @@
+.navigation-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(153, 50, 204, 0.78);
+    box-shadow: 2px 2px 2px rgba(85, 5, 201, 0.38);
+}
+
+.navigation-container a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    transition: background-color 0.2s ease-in, transform 0.1s ease-in-out;
+}
+
+.navigation-container a:hover {
+    background-color: rgba(85, 5, 201, 0.38);
+}
+
+.navigation-container a:active {
+    transform: scaleX(0.95);
+}
