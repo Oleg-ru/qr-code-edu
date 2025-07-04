@@ -1,0 +1,29 @@
+.details {
+    margin: 0.5rem 0 0.5rem 1rem;
+    border: 1px solid darkorchid;
+    padding: 0.5rem;
+    display: block;
+    background-color: rgba(153, 50, 204, 0.78);
+    border-radius: 0.5rem;
+}
+
+.details > summary {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.details-content {
+    display: flex;
+    flex-direction: column;
+    color: #DBF970;
+}
+
+
+.details > summary:hover {
+    cursor: pointer;
+}
+
+.details[open] > summary {
+    background-color: #6c228e;
+    color: white;
+}

@@ -1,5 +1,6 @@
 import { Scanner } from '@yudiel/react-qr-scanner';
 import {useState} from "react";
+import {SCAN_DATA} from '../../constants.js'
 
 import './QRCodeScanner.css';
 
@@ -10,13 +11,15 @@ export const QRCodeScanner = () => {
     }
     const scanHandler = (result) => {
         setResultScannerText(result[0]?.rawValue);
+        const preData = JSON.parse(localStorage.getItem(SCAN_DATA) || '[]');
+        localStorage.setItem(SCAN_DATA, JSON.stringify([...preData, result[0]?.rawValue]));
     }
+
     return (
         <div className='scanner-container'>
-            <h2 className='qr-desc'>Наведите камеру на QR-код</h2>
+            <h2 className='qr-desc header-history'>Наведите камеру на QR-код</h2>
             <Scanner
                 onScan={scanHandler}
-                allowMultiple={true}
                 components={settings}
                 sound={false}
                 styles={{container: {

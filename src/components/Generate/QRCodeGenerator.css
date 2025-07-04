@@ -5,15 +5,19 @@ body {
 
 .qr-code-container {
     padding: 1rem;
-    padding-top: 3rem;
-    border: 1px solid black;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 0.6fr);
+    grid-template-rows: repeat(4, 0.6fr);
     grid-template-areas:
+        "qrCodeGenHeader qrCodeGenHeader qrCodeGenHeader qrCodeGenHeader"
         "qrCodeLabel qrCodeInput qrCodeInput qrCodeInput"
         "qrCodeButton qrCodeButton qrCodeButton qrCodeButton"
         "qrCode qrCode qrCode qrCode";
+}
+
+.qr-code-container > .header-history {
+    margin-top: 0;
+    grid-area: qrCodeGenHeader;
 }
 
 .qr-code {

@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {QRCodeCanvas} from 'qrcode.react';
+import {GENERATE_DATA} from '../../constants.js'
 
 import './QRCodeGenerator.css'
 
@@ -7,10 +8,11 @@ export const QRCodeGenerator = () => {
     const [value, setValue] = useState('');
     const [result, setResult] = useState('');
 
-    const onClickHandler = (event) => {
+    const onClickHandler = () => {
         setResult(value);
         setValue('');   //Очищаю поле ввода
-        console.log(event.nativeEvent);
+        const preDataGenerate = JSON.parse(localStorage.getItem(GENERATE_DATA) || '[]')
+        localStorage.setItem(GENERATE_DATA, JSON.stringify([...preDataGenerate, value]));
     }
     const onChangeHandler = (event) => {
         setValue(event.target.value);
@@ -21,6 +23,7 @@ export const QRCodeGenerator = () => {
 
     return (
         <div className='qr-code-container'>
+            <h2 className='header-history'>Генератор QR-кода</h2>
             <label
                 htmlFor="input_text"
                 className='qr-code-label'>Текст для QR кода</label>

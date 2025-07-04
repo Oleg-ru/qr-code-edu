@@ -1,0 +1,8 @@
+/*Стиль отработает и для генерации*/
+.header-history {
+    text-align: center;
+    margin: 1rem 0;
+    background-color: cadetblue;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
